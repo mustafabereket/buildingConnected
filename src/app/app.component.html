@@ -1,26 +1,29 @@
-<div class="container">
-  <div class="col-md-12">
+<div class="col-md-10 offset-1 row">
+  <div class="col-md-5">
     <h3>Welcome to Metropolitan Museum</h3>
     <hr>
     <h4>Please browse the museum by searching with a keyword here</h4>
     <div class="input-group">
-      <input type="text" style="width: 27%" [(ngModel)]="searchInput" >
-      <button class="btn btn-primary" (click)="search()">Search</button>
+      <input type="text" class="searchBar" [(ngModel)]="searchInput" (ngModelChange)="searchInputChanged.next($event)">
+      <h5 *ngIf="loading">Loading...</h5>
     </div>
     <hr/>
     <ul class="list-group">
-      <li *ngFor="let art of resultArr">
-        <div class="list-group-item clearfix">
-          <div class="col-md-4">
+      <li *ngFor="let art of resultArr" (click)="selectedArt = art" >
+        <div class="list-group-item content" appHighlight >
+          <div>
             <h4>{{art.title}}</h4>
-            <a href="{{art.objectURL}}">{{art.objectURL}}</a>
+            <a href="{{art.objectURL}}" target="_blank">Click here to see details in MetMuseum</a>
           </div>
-          <div class="col-md-4">
-            <img src="{{art.primaryImageSmall}}" class="img-responsive" style="max-height: 80px">
-          </div>
+          <img src="{{art.primaryImageSmall}}" class="img-responsive image">
         </div>
       </li>
     </ul>
-
+    <h5 *ngIf="loading">Loading...</h5>
+    <h5 *ngIf="errorMessage">{{errorMessage}}</h5>
+  </div>
+  <div class="col-md-5" *ngIf="selectedArt">
+    <app-item-detail [artObject]="selectedArt"></app-item-detail>
   </div>
 </div>
+

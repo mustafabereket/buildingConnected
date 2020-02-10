@@ -1,3 +1,15 @@
 .container {
   margin-top: 15px;
 }
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.image {
+  max-width: 80px;
+  max-height: 80px;
+}
+.searchBar {
+  width: 35%;
+  margin-right: 10px
+}
