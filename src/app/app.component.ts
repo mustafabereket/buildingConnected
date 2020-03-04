@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {asNativeElements, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { ApiService} from './api.service';
 import {Subject, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   errorMessage = '';
   loading = false;
   selectedArt: any;
+  @ViewChild('myModal', {static: false}) modal;
   private searchInputChanged: Subject<string> = new Subject<string>();
   private searchInputChangeSubscription: Subscription;
   constructor(private api: ApiService) { }
@@ -56,4 +57,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.api.resultArrSubscription.unsubscribe();
     this.searchInputChanged.unsubscribe();
   }
+
 }

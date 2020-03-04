@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { HighlightDirective } from './directives/highlight.directive';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { ModalDirective } from './modal.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ModalDirective
   ],
   imports: [
     BrowserModule,

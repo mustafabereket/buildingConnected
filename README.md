@@ -1,6 +1,23 @@
+#Project Description
+This was a take home assignment for a company I interviewed previously.
+The goal here is to connect to Metropolitan Museum's API and retrieve some art collection based on the search input.
+
+API info: https://metmuseum.github.io/
+
+Use the Metropolitan Museum of Art API to build a UI for searching their collection. 
+Search results should include the title of the piece, a picture of it, and a link to the piece on their full site. 
+We should never show more than 20 results (and don’t worry about fetching more pages, for the context of this challenge). 
+When a user clicks on a result we should show more detail about the piece (e.g. its dimensions, date, etc). 
+It’s entirely up to you how we show such data (e.g. ﬂyout, modal, side pane, etc). 
+If the user types a query very quickly, only one network request should be sent. 
+E.g. if they super quickly type “Ocean” we should only send one request searching for “Ocean” rather than 5 requests for “O” then “Oc” then “Oce” and etc. 
+We should never show results that don’t match the current content of the search input, even if the user’s network has highly variable latency. 
+E.g. assume that one request to the server might take 10 seconds to return and the next could only take half a second. 
+NOTE: This requirement is important, so make sure to read it carefully and let us know if you have any questions! 
+Please include a brief README giving a high-level overview of the way you structured your code and feel free to include thoughts around things you might change if you were going to take the time to turn this into an actual product.
+
 # How To Start
 This project was built using Angular CLI, 
-if you do not have AngularCLI in your computer please download that using 'npm install -g @angular/cli'
 - cd to the root folder (cd buildingConnectedProject)
 - npm install
 - ng serve --open
@@ -9,6 +26,7 @@ this could take 4-5 seconds but it should eventually open a browser for you poin
 # How to use
 Once the server is running, go to localhost:4200 and type something into searchbar and it should return relevant results.
 Once you click on an art item, it should display details about it on the right side of the page.
+
 
 # Notes
 I tried to cover everything requested:
@@ -21,9 +39,6 @@ I tried to cover everything requested:
         I only send/subscribe to latest searchInput query (switchMap), 
         if things change along the way, to avoid unexpected pending results I double check with a hashMap to see if what I retrieve matches with my searchInput
  
-
-
-
 
 #Tools and Versions Used
 Angular CLI: 8.3.22

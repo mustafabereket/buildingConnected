@@ -1,9 +1,26 @@
 .container {
-  margin-top: 15px;
-}
-.content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.mainBody{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+
+  .searchResults {
+    padding: 7px;
+    display: grid;
+    grid-column: auto;
+    grid-row-gap: 8px;
+    .result{
+      padding: 5px 5px;
+      border: 2px solid dimgrey;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 4px 4px rgba(169, 169, 169, 0.31);
+    }
+  }
 }
 .image {
   max-width: 80px;
@@ -11,5 +28,12 @@
 }
 .searchBar {
   width: 35%;
-  margin-right: 10px
+  margin: 10px;
+  background-color: rgba(49, 51, 53, 0.76);
+  color: white;
+  font-size: large;
+  padding: 5px;
+  border-radius: 10px;
 }
+
+

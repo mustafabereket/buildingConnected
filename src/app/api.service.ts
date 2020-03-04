@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable, of, Subject, throwError} from 'rxjs';
-import {catchError, filter, map, switchMap, take, takeUntil} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
-import {mergeMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
